@@ -34,7 +34,7 @@ def ordPorCosto(lista):
             if costo_x > costo_mayor:
                 posMayor = cos1
                 
-        lista[i], lista[posMayor] = lista[posMayor], lista[i]
+        lista[cos], lista[posMayor] = lista[posMayor], lista[cos]
 
 lista = []
 
