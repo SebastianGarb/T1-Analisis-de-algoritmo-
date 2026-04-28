@@ -23,7 +23,18 @@ def ordSeleccion(lista):
             if lista[ver].codigo > lista[posMayor].codigo:
                 posMayor = ver
         lista[puesto], lista[posMayor] = lista[posMayor], lista[puesto]
-
+def ordPorCosto(lista):
+    n = len(lista)
+    for cos in range(n - 1):
+        posMayor = cos
+        for cos1 in range(cos + 1, n):
+            costo_x = lista[cos1].sueldo * lista[cos1].plazasRequeridas
+            costo_mayor = lista[posMayor].sueldo * lista[posMayor].plazasRequeridas
+            
+            if costo_x > costo_mayor:
+                posMayor = cos1
+                
+        lista[i], lista[posMayor] = lista[posMayor], lista[i]
 
 lista = []
 
@@ -66,6 +77,16 @@ while True:
             else : print("no se encontro el puesto")
     elif opc == 5:
         ordSeleccion(lista)
+        presupuesto = float(input("cuanto dinero en total se invertira en salarios? "))
+        ordPorCosto(lista)
+        print("\npuestos que se pueden cubrir")
+        for pre in lista:
+            costototal = pre.sueldo * pre.plazasRequeridas
+            if presupuesto >= costototal:
+                print(f"- del puesto {pre.descripcion} su monto que se requiere es: {costototal}")
+                presupuesto -= costototal
+                
+        print(f"\ndinero sobrante: {presupuesto}\n")
     elif opc == 9:
         break
 
