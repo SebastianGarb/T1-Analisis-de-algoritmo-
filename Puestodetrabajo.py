@@ -28,7 +28,7 @@ def ordSeleccion(lista):
 lista = []
 
 while True:
-    opc = int(input("1-Agregar puesto \n2-Listar puestos \n3-Borrar puesto \n4-Buscar sueldo \n9-Salir\n"))
+    opc = int(input("1-Agregar puesto \n2-Listar puestos \n3-Borrar puesto \n4-Buscar sueldo \n5-Puesto a contratar \n9-Salir\n"))
     if opc == 1:
         codigo = int(input("Ingrese codigo:"))
         areaSolicitante = input("Ingrese el area que se solicita:")
@@ -64,6 +64,10 @@ while True:
             if q.codigo == elicod:
                 print(f"El sueldo del puesto es {q.sueldo}") 
             else : print("no se encontro el puesto")
+    elif opc == 5:
+        ordSeleccion(lista)
+    elif opc == 9:
+        break
 
 
 
